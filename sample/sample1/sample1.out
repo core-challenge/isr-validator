@@ -1,0 +1,7 @@
+c [Code00]
+c (Answer: NO)
+c Validation success
+c (Note: This validator cannot ensure that whether a correct reconfiguration sequence does not exist for the input)
+s 3 6 7
+t 4 5 7
+a NO

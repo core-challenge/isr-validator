@@ -1,0 +1,9 @@
+c [Code13]
+c Each independent set in the sequence results from
+c the previous one by moving exactly one token to another node
+s 3 6 7
+t 4 5 7
+a YES
+a 3 6 7
+a 1 5 7
+a 4 5 7

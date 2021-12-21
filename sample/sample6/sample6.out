@@ -1,0 +1,8 @@
+c [Code12]
+c The 2nd state is not an independent set
+s 3 6 7
+t 4 5 7
+a YES
+a 3 6 7
+a 4 6 7
+a 4 5 7

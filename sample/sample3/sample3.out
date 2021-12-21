@@ -1,0 +1,12 @@
+c [Code02]
+c (Answer: YES)
+c Validation success, but there is some warning
+s 3 6 7
+t 4 5 7
+a YES
+a 3 6 7
+a 1 6 7
+a 1 5 7
+a 1 6 7
+a 1 5 7
+a 4 5 7
