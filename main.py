@@ -206,6 +206,16 @@ def main():
             raise ValidationError(
                 'Each independent set in the sequence results from '
                 'the previous one by moving exactly one token to another node')
+    
+    # Check that the same state does not appear more than once
+    for i in range(len(answers)):
+        for j in range(i + 1, len(answers)):
+            if answers[i] == answers[j]:
+                print('Warning : The same state appears multiple times')
+                break
+        else:
+            continue
+        break
 
     # If it passes all the checks, then the validation succeeds.
     print('Validation success')
