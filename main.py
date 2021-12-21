@@ -178,47 +178,57 @@ def main():
     s, t = read_st(args[2])
     is_exist, answers = read_answer(args[3])
 
+    is_warn = False
+
     # If there is no reconfiguration sequence, then the validation succeeds.
     if not is_exist:
-        print('Validation success')
+        print(
+            '[Code00] (Answer: NO) Validation success '
+            '(Note: This validator cannot ensure that '
+            'whether a correct reconfiguration sequence does not exist for the input)')
         return
 
     # Check that the initial state match the start state
     if s != answers[0]:
         raise ValidationError(
-            'The initial state must be equal to the start state')
+            '[Code10] The initial state must be equal to the start state')
 
     # Check that the last state match the target state
     if t != answers[-1]:
         raise ValidationError(
-            'The last state must be equal to the target state')
+            '[Code11] The last state must be equal to the target state')
 
     # Check that each state is an independent set.
     for i, a in enumerate(answers):
         if not is_independent_set(vnum, edges, a):
-            raise ValidationError('The ' + ordinal(i + 1) +
-                                  ' state is not an independent set')
+            raise ValidationError(
+                '[Code12] The ' + ordinal(i + 1) +
+                ' state is not an independent set')
 
-    # Check that the difference between successive states is one
+    # Check that the difference between successive states is equal to one
     for i in range(len(answers) - 1):
         diff = set(answers[i]) - set(answers[i + 1])
         if len(diff) != 1:
             raise ValidationError(
-                'Each independent set in the sequence results from '
+                '[Code13] Each independent set in the sequence results from '
                 'the previous one by moving exactly one token to another node')
     
     # Check that the same state does not appear more than once
     for i in range(len(answers)):
         for j in range(i + 1, len(answers)):
             if answers[i] == answers[j]:
-                print('Warning : The same state appears multiple times')
+                is_warn = True
+                print('Warning: The same state appears multiple times')
                 break
         else:
             continue
         break
 
     # If it passes all the checks, then the validation succeeds.
-    print('Validation success')
+    if is_warn:
+        print('[Code02] (Answer: YES) Validation success, but there is some warning')
+    else:
+        print('[Code01] (Answer: YES) Validation success without any warning')
 
 
 if __name__ == '__main__':

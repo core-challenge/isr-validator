@@ -23,6 +23,17 @@ For more information about the file format, please see the following links．
 * [Input file format](https://core-challenge.github.io/2022/#input-file-format)
 * [Output file format](https://core-challenge.github.io/2022/#output-file-format)
 
+## Status Code
+| Code | Description |
+| ---- | ---- |
+| 00 | Output file says that there is no correct reconfiguration sequence, so it passes all the checks. However, the validator cannot ensure that whether a correct reconfiguration sequence does not exist for the input. |
+| 01 | Output file says that there is a correct reconfiguration sequence and passes all the checks without any warning. |
+| 02 | Output file says that there is a correct reconfiguration sequence and passes all the checks, but there is some warning. |
+| 10 | The initial state does not match the start state. |
+| 11 | The last state does not match the target state. |
+| 12 | Some state is not an independent set. |
+| 13 | The difference between some successive states is not equal to one. |
+
 ## License
 "isr-validator" is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
  
