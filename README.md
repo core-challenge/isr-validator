@@ -7,14 +7,28 @@ nor whether the input graph satisfies the conditions.
 
 For more information about the Core Challenge 2022, please see [here](https://core-challenge.github.io/2022/).
 
+> :warning:
+> The validator written in python was not fast enough for some files, so we are currently working on the validator written in C++.
+
 ## Requirement
+### For Python
 * Python 3.x, >= 3.6
 
 ## Usage
-```bash
-python3 main.py <col file> <dat file> <output file>
+### For Python
+```
+python3 main.py [col file] [dat file] [output file]
 ```
 
+### For C++
+```
+make
+```
+```
+./main [col file] [dat file] [output file]
+```
+
+###
 * col file : describes an input graph structure in DIMACS format.
 * dat file : describes start/target states.
 * output file : describes an answer for the ISR problem.
