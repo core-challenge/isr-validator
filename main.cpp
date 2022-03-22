@@ -96,6 +96,7 @@ void parse_stfile(const char *filename, std::vector<int> *start_set,
             {
                 vec->push_back(bv);
             }
+            std::sort(vec->begin(), vec->end());
         }
     }
 }
